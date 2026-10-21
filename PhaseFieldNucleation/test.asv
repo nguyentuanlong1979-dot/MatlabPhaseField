@@ -1,0 +1,28 @@
+A=[10000 30];
+Ea=[22000 12000]; % J/mol %an icrease of temperature leads to increase of dissolution and decrase of precipitation
+con= 20:0.1:24;
+tempr=15:0.1:25;
+% tempr=20;
+% con= 22;
+
+n=1;
+k_C1= A(n).*exp(-Ea(n)./Rg./(tempr+kv));
+m_alpha1 =(1/pix)*atan(k_C(n).*(con-Ceq(n)));
+
+n=2;
+k_C2= A(n).*exp(-Ea(n)./Rg./(tempr+kv));
+m_alpha2 =(1/pix)*atan(k_C(n).*(con-Ceq(n)));
+
+figure
+plot(tempr, k_C1, '-k')
+hold on
+plot(tempr, k_C2, '-r')
+
+
+figure
+plot(con, [m_alpha1; m_alpha2])
+
+figure
+t=-0.5:0.001:10;
+E=exp(t);
+plot(t,E)
